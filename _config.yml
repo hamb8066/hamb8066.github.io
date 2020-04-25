@@ -6,8 +6,9 @@ defaults:
     values:
       layout: default
 
-title: H.A. Mohtashami,PhD 
-subtitle: Researcher & Lecturer
+title: [H.A. Mohtashami-Borzadaran]
+subtitle: [Researcher & Lecturer]
+description: [Ferdowsi University of Mashhad]
 
 # Side Menu Links
 menu:
