@@ -17,7 +17,7 @@ menu:
     icon: ""
 
   - text: Publications
-    link: /
+    link: /skills-and-offers
     icon: ""
 
   - text: Teaching
@@ -28,12 +28,7 @@ menu:
     link: /resume
     icon: ""
 
- - text: Events
-    link: /skills-and-offers
-    icon: ""
-
-
- # Socialmedia Icons
+# Socialmedia Icons
 social_icons:
   - name: linkedin
     link: https://www.linkedin.com/christianezeani
