@@ -28,6 +28,10 @@ menu:
     link: /resume
     icon: ""
 
+  - text: rrrrrr
+    link: /skills-and-offers
+    icon: ""
+    
 # Socialmedia Icons
 social_icons:
   - name: linkedin
