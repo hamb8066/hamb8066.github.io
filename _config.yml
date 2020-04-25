@@ -12,7 +12,7 @@ description: [Ferdowsi University of Mashhad]
 
 # Side Menu Links
 menu:
-  - text: Portfolio
+  - text: Home
     link: /
     icon: ""
 
@@ -20,11 +20,11 @@ menu:
     link: /skills-and-offers
     icon: ""
 
-  - text: Contact Me
+  - text: Teaching
     link: /contact
     icon: ""
 
-  - text: My Resume
+  - text: Software
     link: /resume
     icon: ""
 
