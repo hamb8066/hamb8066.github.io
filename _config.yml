@@ -11,7 +11,7 @@ subtitle: Researcher & Lecturer
 
 # Side Menu Links
 menu:
-  - text: Portfolio
+  - text: About me
     link: /
     icon: ""
 
@@ -25,6 +25,10 @@ menu:
 
   - text: My Resume
     link: /resume
+    icon: ""
+
+ - text: Publications
+    link: /publications
     icon: ""
 
 # Socialmedia Icons
