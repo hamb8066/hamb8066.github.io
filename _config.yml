@@ -12,7 +12,7 @@ description: [Ferdowsi University of Mashhad]
 
 # Side Menu Links
 menu:
-  - text: About me
+  - text: Portfolio
     link: /
     icon: ""
 
@@ -28,11 +28,7 @@ menu:
     link: /resume
     icon: ""
 
- - text: Publications
-    link: /publications
-    icon: ""
-
-# Socialmedia Icons
+ # Socialmedia Icons
 social_icons:
   - name: linkedin
     link: https://www.linkedin.com/christianezeani
