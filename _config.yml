@@ -17,7 +17,7 @@ menu:
     icon: ""
 
   - text: Publications
-    link: /skills-and-offers
+    link: /Publications
     icon: ""
 
   - text: Teaching
@@ -27,6 +27,11 @@ menu:
   - text: Software
     link: /resume
     icon: ""
+
+ - text: Events
+    link: /skills-and-offers
+    icon: ""
+
 
  # Socialmedia Icons
 social_icons:
