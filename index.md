@@ -13,8 +13,8 @@ Researcher & Lecturer
 Department of Statistics  
 Faculty of Mathematical Sciences  
 Ferdowsi University of Mashhad  
-Mashhad, Iran.
-
+Mashhad, Iran.  
+Email: h.mohtashami@mail.um.ac.ir
 
 ## Research Interests
 
