@@ -4,7 +4,7 @@ layout: default
 
 # About me
 
-I'm a researcher, interested in distribution theory and dependence modelling. My research field has guided me toward Time series and statistical learning algorithms. I'm also trying to improve my abilities in writing codes with R and Python.
+I'm a researcher, interested in distribution theory and dependence modelling. My research field has guided me toward Time series and statistical learning algorithms. I'm always trying to improve my abilities in writing codes with R and Python.
 
 ## Contact
 
