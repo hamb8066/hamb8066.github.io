@@ -24,6 +24,11 @@ Copula-Time series
 Vine Copula models  
 Statistical Learning
 
+## Research Grants
+
+(2016-2017) Modeling high dimensional data using vine-copulas, Funded by Ministry of Science, Research and Technology of Iran.  
+(2015-2020) Construction of new copula functions using distortion method, Funded by Ferdowsi University of Mashhad, code38530.
+
 ## Education
 
 PhD Statistical Inference, 2020  
