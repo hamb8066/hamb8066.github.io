@@ -8,7 +8,7 @@ I'm a researcher, interested in distribution theory and dependence modelling. My
 
 ## Contact
 
-Hossein-Ali Mohtashami-Borzadaran
+Hossein-Ali Mohtashami-Borzadaran\\
 Researcher & Lecturer 
 Department of Statistics
 Faculty of Mathematical Sciences
