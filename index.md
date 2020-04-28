@@ -31,7 +31,7 @@ Statistical Learning
 
 ## Education
 
-PhD Statistical Inference, ( to be 2020)  
+PhD Statistical Inference, (to be 2020)  
 <sub><sup> Ferdowsi University of Mashhad </sup></sub>  
 MSc Mathematical statistics, 2014  
 <sub><sup> Ferdowsi University of Mashhad </sup></sub>  
