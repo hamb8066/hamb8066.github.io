@@ -30,11 +30,11 @@ Curriculum vitae (resume)
 
 ## Research Interests
 
-Shock models  
-Distribution theory  
-Copula-Time series  
-Vine Copula models  
-Statistical Learning
+* Shock models  
+* Distribution theory  
+* Copula-Time series  
+* Vine Copula models  
+* Statistical Learning
 
 ## Research Grants
 
