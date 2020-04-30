@@ -15,9 +15,7 @@ Faculty of Mathematical Sciences
 Ferdowsi University of Mashhad  
 Mashhad, Iran.  
 
-<div class="text-blue mb-2">
-  .text-blue on white
-</div>
+<span style=“color:green;”> text goes here</span>
 
 Email: h.mohtashami@mail.um.ac.ir
 
