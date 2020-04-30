@@ -21,11 +21,11 @@ menu:
     icon: ""
 
   - text: Teaching
-    link: /contact
+    link: /teaching
     icon: ""
 
-  - text: Software
-    link: /teaching
+  - text: Software R & Python
+    link: /software
     icon: ""
 
   - text: Events
