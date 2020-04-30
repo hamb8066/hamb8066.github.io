@@ -14,10 +14,10 @@ Department of Statistics
 Faculty of Mathematical Sciences  
 Ferdowsi University of Mashhad  
 Mashhad, Iran.  
+```diff
++ Email: h.mohtashami@mail.um.ac.ir
+```
 
-<p style='color:red'>This is some red text.</p>
-
-Email: h.mohtashami@mail.um.ac.ir
 
 
 
