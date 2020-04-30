@@ -14,8 +14,10 @@ Department of Statistics
 Faculty of Mathematical Sciences  
 Ferdowsi University of Mashhad  
 Mashhad, Iran.  
-[ORCHID ID](https://orcid.org/0000-0002-5448-718X)  
-[Researchgate account](https://www.researchgate.net/profile/Hossien_Ali_Mohtashami-Borzadaran)  
+[My Google Scholar profile](https://scholar.google.com/citations?hl=en&user=McMgn4oAAAAJ)
+[My Researchgate page](https://www.researchgate.net/profile/Hossien_Ali_Mohtashami-Borzadaran)  
+[ORCHID ID: 0000-0002-5448-718X](https://orcid.org/0000-0002-5448-718X)  
+Curriculum vitae (resume)  
 ```diff
 + Email: h.mohtashami@mail.um.ac.ir
 ```
