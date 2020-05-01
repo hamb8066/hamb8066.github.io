@@ -21,7 +21,6 @@ ORCHID ID: 0000-0002-5448-718X
 Curriculum vitae (Resume)  
 ```diff
 + Email: h.mohtashami@mail.um.ac.ir
-- Gmail: h.mohborz@gmail.com
 ```
 
 
