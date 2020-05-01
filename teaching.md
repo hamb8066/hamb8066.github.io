@@ -7,7 +7,7 @@ These are the courses that I have taught or teach as a tutor, instructor and tut
 
 ## Summer term 2020
 
-* Copula Theory and Applications (Msc) 
+* [Copula Theory and Applications (Msc)](https://hamb8066.github.io/IntroCopula)  
 
 ## Previous Courses
 
