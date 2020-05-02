@@ -44,13 +44,13 @@ Curriculum vitae (Resume)
 
 * PhD Statistical Inference, (to be 2020)  
 <sup> Supervisors: [Prof. Amini](http://m-amini.profcms.um.ac.ir) & [Prof. Jabbari](http://jabbarinh.profcms.um.ac.ir)</sup>  
-<sup> Ferdowsi University of Mashhad </sup>
+<sup> Ferdowsi University of Mashhad </sup>    
 * Visiting researcher (2016-2017)  
-<sup> [Prof. Czado](https://www.groups.ma.tum.de/en/statistics/people/claudia-czado) </sup>  
-<sup>  Technical University of Munich  </sup>  
+<sup> Supervisor: [Prof. Czado](https://www.groups.ma.tum.de/en/statistics/people/claudia-czado) </sup>  
+<sup>  Technical University of Munich  </sup>    
 * MSc Mathematical statistics, 2014  
-<sup> [Prof. Amini](http://m-amini.profcms.um.ac.ir/) </sup>  
-<sup> Ferdowsi University of Mashhad </sup>  
+<sup> Supervisor: [Prof. Amini](http://m-amini.profcms.um.ac.ir/) </sup>  
+<sup> Ferdowsi University of Mashhad </sup>    
 * BSc Statistics, 2009  
 <sup> Ferdowsi University of Mashhad </sup>
 
