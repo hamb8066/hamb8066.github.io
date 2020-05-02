@@ -40,14 +40,14 @@ Curriculum vitae (Resume)
 (2016-2017) Modeling high dimensional data using vine-copulas, Funded by Ministry of Science, Research and Technology of Iran.  
 (2015-2020) Construction of new copula functions using distortion method, Funded by Ferdowsi University of Mashhad, code38530.
 
-## Education
+## Education & Visits
 
 * PhD Statistical Inference, (to be 2020)  
-<sup> Ferdowsi University of Mashhad </sup>  
+<sup> [Prof. Amini](http://m-amini.profcms.um.ac.ir) & [Prof. Jabbari](http://jabbarinh.profcms.um.ac.ir) Ferdowsi University of Mashhad </sup>  
 * Visiting researcher (2016-2017)  
 <sup> [Prof. Czado](https://www.groups.ma.tum.de/en/statistics/people/claudia-czado), Technical University of Munich </sup>  
 * MSc Mathematical statistics, 2014  
-<sup> Ferdowsi University of Mashhad </sup>  
+<sup> [Prof. Amini](http://m-amini.profcms.um.ac.ir/) Ferdowsi University of Mashhad </sup>  
 * BSc Statistics, 2009  
 <sup> Ferdowsi University of Mashhad </sup>
 
