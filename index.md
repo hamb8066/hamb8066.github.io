@@ -44,7 +44,7 @@ Curriculum vitae (Resume)
 
 * PhD Statistical Inference, (to be 2020)  
 <sup> Ferdowsi University of Mashhad </sup>  
-* Visiting researcher (Prof. Czado)  
+* Visiting researcher ([Prof. Czado](https://www.groups.ma.tum.de/en/statistics/people/claudia-czado))  
 <sup> Technical University of Munich </sup>  
 * MSc Mathematical statistics, 2014  
 <sup> Ferdowsi University of Mashhad </sup>  
