@@ -43,9 +43,11 @@ Curriculum vitae (Resume)
 ## Education
 
 * PhD Statistical Inference, (to be 2020)  
-<sub><sup> Ferdowsi University of Mashhad </sup></sub>  
+<sup> Ferdowsi University of Mashhad </sup>  
+* Visiting researcher (Prof. Czado)  
+<sup> Technical University of Munich </sup>  
 * MSc Mathematical statistics, 2014  
-<sub><sup> Ferdowsi University of Mashhad </sup></sub>  
+<sup> Ferdowsi University of Mashhad </sup>  
 * BSc Statistics, 2009  
-<sub><sup> Ferdowsi University of Mashhad </sup></sub>
+<sup> Ferdowsi University of Mashhad </sup>
 
