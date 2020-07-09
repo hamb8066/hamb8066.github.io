@@ -15,6 +15,6 @@ These are my projects and software codes.
 
 ## Software (R & Python)
 
-* Some of PhD thesis codes.(https://github.com/hamb8066/homepage/PhdCodes.txt)
+* [Some of PhD thesis codes.](https://github.com/hamb8066/homepage/PhdCodes.txt)
  
 
