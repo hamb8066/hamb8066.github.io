@@ -28,8 +28,8 @@ MO.est<-function(data){
   lambda2<-sum(data[,1]>data[,2])*M(data)/length(data)
   lambda12<-sum(round(data[,1],5)==round(data[,2],5))*M(data)/length(data)
   return(cbind(lambda1,lambda2,lambda12))
-}ý
-ýý
+}Ã½
+Ã½Ã½
 #PLOTS
 
 rTMO.g1<-function(m,th,lam1,lam2,lam12){
@@ -43,25 +43,6 @@ y[i]<-max(aa[,2])
 }
   return(cbind(x,y))
 }
-bb<-rTMO.g1(1000,3,1,2,9)
-plot(pobs(bb))
-
-par(mfrow=c(1,4))
-aa<-rMO(1000,1,2,9)
-plot(pobs(aa),col=6,xlab="u",ylab="v",main="MO model")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(aa,method="kendall")[1,2],3)),cex=1.5)
-
-bb<-rTMO.g1(1000,4,1,2,9)
-plot(pobs(bb),col=3,xlab="u",ylab="v",main="Poisson-MO with r=4")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(bb,method="kendall")[1,2],3)),cex=1.5)
-
-bb<-rTMO.g1(1000,20,1,2,9)
-plot(pobs(bb),col=3,xlab="u",ylab="v",main="Poisson-MO with r=20")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(bb,method="kendall")[1,2],3)),cex=1.5)
-
-bb<-rTMO.g1(1000,70,1,2,9)
-plot(pobs(bb),col=3,xlab="u",ylab="v",main="Poisson-MO with r=70")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(bb,method="kendall")[1,2],3)),cex=1.5)
 
 rTMO.g2<-function(m,th,lam1,lam2,lam12){
   x<-0
@@ -77,34 +58,16 @@ rTMO.g2<-function(m,th,lam1,lam2,lam12){
 bb<-rTMO.g1(1000,3,1,2,9)
 plot(pobs(bb))
 
-par(mfrow=c(1,4))
-aa<-rMO(1000,1,2,3)
-plot(pobs(aa),col=6,xlab="u",ylab="v",main="MO model")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(aa,method="kendall")[1,2],3)),cex=1.5)
-
-bb<-rTMO.g2(1000,0.04,1,2,3)
-plot(pobs(bb),col=3,xlab="u",ylab="v",main="Log-MO with r=0.04")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(bb,method="kendall")[1,2],3)),cex=1.5)
-
-bb<-rTMO.g2(1000,0.8,1,2,3)
-plot(pobs(bb),col=3,xlab="u",ylab="v",main="Log-MO with r=0.8")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(bb,method="kendall")[1,2],3)),cex=1.5)
-
-bb<-rTMO.g2(1000,0.96,1,2,3)
-plot(pobs(bb),col=3,xlab="u",ylab="v",main="Log-MO with r=0.96")
-text(0.6,0.1,paste(expression(Tau),"=",round(cor(bb,method="kendall")[1,2],3)),cex=1.5)
-ý
 #Poisson-TMO density
-
 dTMO.g1<-function(t,s,th,lam1,lam2,lam3){
   if(t<s) AA=(((lam1*th*(lam2+lam3))/(exp(th)-1))*exp(-lam1*t-(lam2+lam3)*s)*exp(th*exp(-lam1*t-(lam2+lam3)*s))*(1+th*exp(-lam1*t-(lam2+lam3)*s)))
   if(t>s) AA=(((lam2*th*(lam1+lam3))/(exp(th)-1))*exp(-(lam1+lam3)*t-lam2*s)*exp(th*exp(-(lam1+lam3)*t-lam2*s))*(1+th*exp(-(lam1+lam3)*t-lam2*s)))
   if(t==s) AA=((th*lam3)/(exp(th)-1)*exp(-(lam1+lam2+lam3)*s)*exp(th*exp(-(lam1+lam2+lam3)*s)))
   return(AA)
 }
-ý
+
 #Initial values (time consuming!)
-gosolnp(fun=minusloglikelihood,LB = c(0.01,0.01,0.01,0.01), UB = c(1e+6,1e+6,1e+6,1e+6)ý
+gosolnp(fun=minusloglikelihood,LB = c(0.01,0.01,0.01,0.01), UB = c(1e+6,1e+6,1e+6,1e+6)Ã½
              ,n.restarts = 1000, n.sim = 20000)$pars
 
 minusloglikelihood<-function(dd){
@@ -139,8 +102,8 @@ rBNMO=function(n,th1,th2,th12){
       y2[i]<-min(b[i],qexp(1-u[i],th12))
   }
   return(na.omit(cbind(y1,y2)))
-}ý
-ýý
+}
+
 tau<-function(a,b){
   1-4*integrate(function(y){
     sapply(y, function(y)integrate(function(x)
@@ -150,63 +113,14 @@ tau<-function(a,b){
 }
 tau(0.9,0.9)
 
-kend1<-function(x) tau(0.1,x)
-kend1<-Vectorize(kend1,"x")
-curve(kend1, 0.01, 0.99,lty=1 ,col="blue",xlab = expression(beta)
-      ,ylab = expression(tau (beta)),ylim=c(-1,0),main= "Kendall's Tau", lwd=3 )
-
-kend2<-function(x) tau(0.4,x)
-kend2<-Vectorize(kend2,"x")
-curve(kend2, 0.01, 0.99,lty=2, add=TRUE,col="red", lwd=3)
-
-kend3<-function(x) tau(0.7,x)
-kend3<-Vectorize(kend3,"x")
-curve(kend3, 0.01, 0.99,lty=3, add=TRUE,col="darkgreen", lwd=3)
-
-kend4<-function(x) tau(0.95,x)
-kend4<-Vectorize(kend4,"x")
-curve(kend4, 0.01, 0.99,lty=4 , add=TRUE,col="purple", lwd=3)
-
-labels<-c(expression(paste(alpha,"=0.1"))
-          ,expression(paste(alpha,"=0.4"))
-          ,expression(paste(alpha,"=0.7"))
-          ,expression(paste(alpha,"=0.9")))
-legend("bottomleft", inset=0.1, title="", labels, bty='n', lwd=3, 
-       col=c("blue","red","darkgreen","purple"),lty=c(1,2,3,5), cex=1.5)
-
-kend1<-function(x) tau(x,0.05)
-kend1<-Vectorize(kend1,"x")
-curve(kend1, 0.01, 0.99,lty=1 ,col="blue",xlab = expression(alpha)
-      ,ylab = expression(tau (alpha)),ylim=c(-1,0),main= "Kendall's Tau", lwd=3 )
-
-kend2<-function(x) tau(x,0.35)
-kend2<-Vectorize(kend2,"x")
-curve(kend2, 0.01, 0.99,lty=2, add=TRUE,col="red", lwd=3)
-
-kend3<-function(x) tau(x,0.75)
-kend3<-Vectorize(kend3,"x")
-curve(kend3, 0.01, 0.99,lty=3, add=TRUE,col="darkgreen", lwd=3)
-
-kend4<-function(x) tau(x,0.95)
-kend4<-Vectorize(kend4,"x")
-curve(kend4, 0.01, 0.99,lty=4 , add=TRUE,col="purple", lwd=3)
-
-labels<-c(expression(paste(beta,"=0.2"))
-          ,expression(paste(beta,"=0.35"))
-          ,expression(paste(beta,"=0.75"))
-          ,expression(paste(beta,"=0.95")))
-legend("bottomleft", inset=0.1, title="", labels, bty='n', lwd=3, 
-       col=c("blue","red","darkgreen","purple"),lty=c(1,2,3,5), cex=1.5)ý
-ý
-
-ý#density function of BNMO(th1,th2,th12)
+#density function of BNMO(th1,th2,th12)
 dBNMO<-function(r,s,th1,th2,th12){
   if( exp(-th12*s) + exp(-th12*r) -1  >  0 ) AA= th2*(th1+th12)*exp(-(th1+th12)*r-th2*s) + th1*(th2+th12)*exp(  -th1*r-(th2+th12)*s ) - th1*th2*exp(-th1*r-th2*s)#)*(r>0)*(s>0)*(th1>0)*(th2>0)*(th12>0)
   if( exp(-th12*s) + exp(-th12*r) -1  == 0 ) AA= ((th12)/(th1+th12))*( 1-exp(-th12*r) )^(th2/th12)#*(r>0)*(s>0)*(th1>0)*(th2>0)*(th12>0)
   if( exp(-th12*s) + exp(-th12*r) -1  <  0 ) AA= 0.0000001
   return(AA)
-}ý
-ýý
+}
+
 spearman<-function(th1,th2,th12){
   cov<-integrate(function(y){
     sapply(y, function(y)integrate(function(x)
@@ -216,57 +130,7 @@ spearman<-function(th1,th2,th12){
 }
 spearman(0.9,0.1)
 
-kend1<-function(x) spearman(0.1,x)
-kend1<-Vectorize(kend1,"x")
-curve(kend1, 0.01, 0.99,lty=1 ,col="blue",xlab = expression(beta)
-      ,ylab = expression(rho (beta)),ylim=c(-1,0),main= "Spearman's Rho", lwd=3 )
-
-kend2<-function(x) spearman(0.4,x)
-kend2<-Vectorize(kend2,"x")
-curve(kend2, 0.01, 0.99,lty=2, add=TRUE,col="red", lwd=3)
-
-kend3<-function(x) spearman(0.7,x)
-kend3<-Vectorize(kend3,"x")
-curve(kend3, 0.01, 0.99,lty=3, add=TRUE,col="darkgreen", lwd=3)
-
-kend4<-function(x) spearman(0.95,x)
-kend4<-Vectorize(kend4,"x")
-curve(kend4, 0.01, 0.99,lty=4 , add=TRUE,col="purple", lwd=3)
-
-labels<-c(expression(paste(alpha,"=0.1"))
-          ,expression(paste(alpha,"=0.4"))
-          ,expression(paste(alpha,"=0.7"))
-          ,expression(paste(alpha,"=0.9")))
-legend("bottomleft", inset=0.05, title="", labels, bty='n', lwd=3, 
-       col=c("blue","red","darkgreen","purple"),lty=c(1,2,3,5), cex=1.5)
-
-######################################################################
-
-kend1<-function(x) spearman(x,0.05)
-kend1<-Vectorize(kend1,"x")
-curve(kend1, 0.01, 0.99,lty=1 ,col="blue",xlab = expression(alpha)
-      ,ylab = expression(rho (alpha)),ylim=c(-1,0),main= "Spearman's Rho", lwd=3 )
-
-kend2<-function(x) spearman(x,0.35)
-kend2<-Vectorize(kend2,"x")
-curve(kend2, 0.01, 0.99,lty=2, add=TRUE,col="red", lwd=3)
-
-kend3<-function(x) spearman(x,0.75)
-kend3<-Vectorize(kend3,"x")
-curve(kend3, 0.01, 0.99,lty=3, add=TRUE,col="darkgreen", lwd=3)
-
-kend4<-function(x) spearman(x,0.95)
-kend4<-Vectorize(kend4,"x")
-curve(kend4, 0.01, 0.99,lty=4 , add=TRUE,col="purple", lwd=3)
-
-labels<-c(expression(paste(beta,"=0.2"))
-          ,expression(paste(beta,"=0.35"))
-          ,expression(paste(beta,"=0.75"))
-          ,expression(paste(beta,"=0.95")))
-legend("bottomleft", inset=0.05, title="", labels, bty='n', lwd=3, 
-       col=c("blue","red","darkgreen","purple"),lty=c(1,2,3,5), cex=1.5)
-
-ý#MSE function
+#MSE function
 mse.NBMO<-function(m,th1,th2,th12){
 aa<-rBNMO(m,th1,th2,th12)
 minusloglikelihood<-function(dd){
@@ -319,8 +183,6 @@ library(VineCopula)
 udata<-as.copuladata(rBNGM.udata(10000,2,3000,2,4000,5,5,2000))
 pairs.copuladata(udata)
 
-
-
 #Plot of density and distribution function of BNGM model.
 library(plot3D)
 BNGM.survival=function(t,s,a0,a1,b0,b1,th1,th2,th12){
@@ -331,8 +193,6 @@ BNGM.survival(0.2,0.7,7,3,2,6,2,7,5)
 x<-y<-seq(0,0.1,0.001)
 z<-outer(x,y,function(x,y) BNGM.survival(x,y,7,3,2,6,2,7,5))
 persp(x,y,z,theta=45,phi=30,col=3)
-
-
 
 BNGM.density=function(t,s,a0,a1,b0,b1,th1,th2,th12){
   BNGM.survival(t,s,a0,a1,b0,b1,th1,th2,th12)*
@@ -369,7 +229,7 @@ t <- seq(0,1.5,0.1)
 w <- outer(s,t,function(s,t) Clayton.Oakes(s,t,7,3,2,6,2,7,5)-1)
 persp(s,t,w,theta=45,phi=20,ticktype="detailed",col=10,border = 4)
 
-ýBNGM.survival=function(t,s,a0,a1,b0,b1,th1,th2,th12){
+BNGM.survival=function(t,s,a0,a1,b0,b1,th1,th2,th12){
   exp(-a0*t+th1*(exp(-a1*t)-1) -b0*s+th2*(exp(-b1*s)-1)
       +th12*(exp(-a1*t-b1*s)-1))
 }
@@ -378,8 +238,7 @@ BNGM.density=function(t,s,a0,a1,b0,b1,th1,th2,th12){
     (th12*a1*b1*exp(-a1*t-b1*s)+(b0+th2*b1*exp(-b1*s)+th12*b1*exp(-a1*t-b1*s))
      *(a0+a1*th1*exp(-a1*t)+th12*a1*exp(-a1*t-b1*s)))
 }
-BNGM.density(0.2,0.7,7,3,2,6,2,7,5)ý
-ýý
+BNGM.density(0.2,0.7,7,3,2,6,2,7,5)Ã½
 
 ##########################################################
 ###1.quantile function from known distribution function###
@@ -414,7 +273,6 @@ psi<-function(a,b,c,d,e,f,g){
 }
 psi(1,1,1,1,1,1,1)
 
-
 CTEofMIN<-function(alpha,a0,a1,b0,b1,th1,th2,th12){
   dd<-(exp(-th1-th2-th12)/(a1*PNGM(qNGM(alpha,a0,a1,b0,b1,th1,th2,th12)
                                    ,a0,a1,b0,b1,th1,th2,th12)))*
@@ -423,31 +281,3 @@ CTEofMIN<-function(alpha,a0,a1,b0,b1,th1,th2,th12){
   return(dd)
 }
 CTEofMIN(0.1,1,0.2,1,0.3,200,300,10)
-CTEofMIN.plot<-function(x) CTEofMIN(x,0.1,0.2,0.1,0.3,0.2,0.3,0.2)
-CTEofMIN.plot<-Vectorize(CTEofMIN.plot,"x")
-curve(CTEofMIN.plot, 0, 1, n=100, ylim=c(0.8,6.2),xlab=expression(alpha), ylab="CTE"
-      , main=expression(paste("CTE of Min for BNGM(0.1,0.2,0.1,0.3,0.2,0.3,"
-                              ,theta[12],")")), lty=1 ,col="blue", lwd=2)
-
-
-
-CTEofMIN.plot1<-function(x) CTEofMIN(x,0.1,0.2,0.1,0.3,0.2,0.3,0.8)
-CTEofMIN.plot1<-Vectorize(CTEofMIN.plot1,"x")
-curve(CTEofMIN.plot1, 0, 1, n=100, add=TRUE, xlab=expression(alpha), ylab="CTE"
-      , lty=2, col="red", lwd=2)
-
-
-CTEofMIN.plot2<-function(x) CTEofMIN(x,0.1,0.2,0.1,0.3,0.2,0.3,1.5)
-CTEofMIN.plot2<-Vectorize(CTEofMIN.plot2,"x")
-curve(CTEofMIN.plot2, 0, 1, n=100, add=TRUE, xlab=expression(alpha), ylab="CTE"
-      , lty=3, col="darkgreen", lwd=2)
-
-
-CTEofMIN.plot3<-function(x) CTEofMIN(x,0.1,0.2,0.1,0.3,0.2,0.3,3)
-CTEofMIN.plot3<-Vectorize(CTEofMIN.plot3,"x")
-curve(CTEofMIN.plot3, 0, 1, n=100, add=TRUE, xlab=expression(alpha), ylab="CTE"
-      , lty=4, col="purple", lwd=2)
-labels<-c(expression(paste(theta[12]," =.2  ")),expression(paste(theta[12]," =.8")),
-          expression(paste(theta[12]," =1.5 ")),expression(paste(theta[12]," =3")))
-legend("topleft", inset=0.05, title="Legend", labels, lwd=2, col=c("blue","red","darkgreen","purple"),
-       lty=c(1,2,3,4),horiz=T)ý
