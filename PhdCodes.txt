@@ -1,0 +1,282 @@
+##################################################################
+#########These are some of the codes used in my thesis############
+################ By: H. A. Mohtashami Borzadaran #################
+##################################################################
+
+#####################
+##### Chapter 2 #####
+#####################
+#MO random number generation algorithm (KARLIS 2003)
+rMO<-function(n,lam1,lam2,lam12){
+  x1<-rexp(n,lam1)
+  x2<-rexp(n,lam2)
+  x12<-rexp(n,lam12)
+  return(cbind(pmin(x1,x12),pmin(x2,x12)))
+}
+aa<-rMO(1000,1,2,3)
+#MO density (KARLIS 2003)
+dMO<-function(x,y,lam1,lam2,lam12){
+  if(x<y) AA=lam1*(lam2+lam12)*exp(-lam1*x-(lam2+lam12)*y)
+  if(x>y) AA=lam2*(lam1+lam12)*exp(-(lam1+lam12)*x-lam2*y)
+  if(x==y) AA=lam12*exp(-(lam1+lam2+lam12)*y)
+  return(AA)
+}
+#MO parameter estimation (ARNOLD 1968)
+MO.est<-function(data){
+  M<-function(d) (length(d)-1)/sum(pmin(d[,1],d[,2]))
+  lambda1<-sum(data[,1]<data[,2])*M(data)/length(data)
+  lambda2<-sum(data[,1]>data[,2])*M(data)/length(data)
+  lambda12<-sum(round(data[,1],5)==round(data[,2],5))*M(data)/length(data)
+  return(cbind(lambda1,lambda2,lambda12))
+}?
+??
+#PLOTS
+
+rTMO.g1<-function(m,th,lam1,lam2,lam12){
+x<-0
+y<-0
+for(i in 1:m){
+N<-rtpois(1, th, a = 1, b = Inf)
+aa<-rMO(N,lam1,lam2,lam12)
+x[i]<-max(aa[,1])
+y[i]<-max(aa[,2])
+}
+  return(cbind(x,y))
+}
+
+rTMO.g2<-function(m,th,lam1,lam2,lam12){
+  x<-0
+  y<-0
+  for(i in 1:m){
+    N<-rlgser(1, th)
+    aa<-rMO(N,lam1,lam2,lam12)
+    x[i]<-max(aa[,1])
+    y[i]<-max(aa[,2])
+  }
+  return(cbind(x,y))
+}
+bb<-rTMO.g1(1000,3,1,2,9)
+plot(pobs(bb))
+
+#Poisson-TMO density
+dTMO.g1<-function(t,s,th,lam1,lam2,lam3){
+  if(t<s) AA=(((lam1*th*(lam2+lam3))/(exp(th)-1))*exp(-lam1*t-(lam2+lam3)*s)*exp(th*exp(-lam1*t-(lam2+lam3)*s))*(1+th*exp(-lam1*t-(lam2+lam3)*s)))
+  if(t>s) AA=(((lam2*th*(lam1+lam3))/(exp(th)-1))*exp(-(lam1+lam3)*t-lam2*s)*exp(th*exp(-(lam1+lam3)*t-lam2*s))*(1+th*exp(-(lam1+lam3)*t-lam2*s)))
+  if(t==s) AA=((th*lam3)/(exp(th)-1)*exp(-(lam1+lam2+lam3)*s)*exp(th*exp(-(lam1+lam2+lam3)*s)))
+  return(AA)
+}
+
+#Initial values (time consuming!)
+gosolnp(fun=minusloglikelihood,LB = c(0.01,0.01,0.01,0.01), UB = c(1e+6,1e+6,1e+6,1e+6),n.restarts = 1000, n.sim = 20000)$pars
+
+minusloglikelihood<-function(dd){
+  th=dd[1]
+  lam1=dd[2]
+  lam2=dd[3]
+  lam3=dd[4]
+  ff<-Vectorize(TMO.g1.density)
+  AAA=-sum(log(ff(aa[,1],aa[,2],th,lam1,lam2,lam3)))
+  if(th<0.01 | lam1<0.01 | lam2<0.01 | lam3<0.01) AAA=1e+100
+  return(AAA)
+}
+minusloglikelihood(c(1,1,2,3))
+
+#####################
+##### Chapter 3 #####
+#####################
+#Algorithm to generate BNMO(th1,th2,th12)
+rBNMO=function(n,th1,th2,th12){
+  a<-c() 
+  b<-c()
+  u<-c()
+  y1<-c()
+  y2<-c()
+  a<-rexp(n,th1)
+  b<-rexp(n,th2)
+  u<-runif(n)
+  for(i in 1:n){
+    #if(exp(-4*min(b[i],qexp(1-u[i],th12)))  >= 1-exp(-4*min(a[i],qexp(u[i],th12)))) 
+      y1[i]<-min(a[i],qexp(u[i],th12))
+    #if(exp(-4*min(b[i],qexp(1-u[i],th12)))  >= 1-exp(-4*min(a[i],qexp(u[i],th12)))) 
+      y2[i]<-min(b[i],qexp(1-u[i],th12))
+  }
+  return(na.omit(cbind(y1,y2)))
+}
+
+tau<-function(a,b){
+  1-4*integrate(function(y){
+    sapply(y, function(y)integrate(function(x)
+      (y^(1-b)+(1-a)*y*x^(-a)-(1-a)*(x^(-a))*y^(1-b))*(x^(1-a)+(1-b)*x*y^(-b)-(1-b)*(y^(-b))*x^(1-a))
+      , (1-y^b)^(1/a), 1)$value
+    )}, 0, 1)$value
+}
+tau(0.9,0.9)
+
+#density function of BNMO(th1,th2,th12)
+dBNMO<-function(r,s,th1,th2,th12){
+  if( exp(-th12*s) + exp(-th12*r) -1  >  0 ) AA= th2*(th1+th12)*exp(-(th1+th12)*r-th2*s) + th1*(th2+th12)*exp(  -th1*r-(th2+th12)*s ) - th1*th2*exp(-th1*r-th2*s)#)*(r>0)*(s>0)*(th1>0)*(th2>0)*(th12>0)
+  if( exp(-th12*s) + exp(-th12*r) -1  == 0 ) AA= ((th12)/(th1+th12))*( 1-exp(-th12*r) )^(th2/th12)#*(r>0)*(s>0)*(th1>0)*(th2>0)*(th12>0)
+  if( exp(-th12*s) + exp(-th12*r) -1  <  0 ) AA= 0.0000001
+  return(AA)
+}
+
+spearman<-function(th1,th2,th12){
+  cov<-integrate(function(y){
+    sapply(y, function(y)integrate(function(x)
+      x*y^(1-b) + y*x^(1-a) -(x^(1-a))*(y^(1-b))
+      , (1-y^b)^(1/a), 1)$value
+    )}, 0, 1)$value-3
+}
+spearman(0.9,0.1)
+
+#MSE function
+mse.NBMO<-function(m,th1,th2,th12){
+aa<-rBNMO(m,th1,th2,th12)
+minusloglikelihood<-function(dd){
+  th1=dd[1]
+  th2=dd[2]
+  th12=dd[3]
+  ff<-Vectorize(dBNMO)
+  AAA=-sum(na.omit(log(ff(aa[,1],aa[,2],th1,th2,th12))))
+  if(th1<0.01 | th2<0.01 | th12<0.01 | th1>10 | th2>10 | th12>10 ) AAA=1e+100
+  return(AAA)
+}
+
+#####################
+##### Chapter 4 #####
+#####################
+#simulating copula data from BNGM distribution
+rBNGM.udata=function(n,a0,a1,b0,b1,th1,th2,th12){
+  surv.NGM=function(x,a0,a1,th){
+    v<-exp((-a0)*x+th*(exp((-a1)*x)-1))
+    return(v)
+  }
+  rBNGM=function(n,a0,a1,b0,b1,th1,th2,th12){
+    t=0
+    s=0
+    for (i in 1:n){
+      p1<-rpois(1,th1)
+      p2<-rpois(1,th2)
+      p12<-rpois(1,th12)
+      N1<-p1+p12
+      N2<-p2+p12
+      x0<-rexp(1,a0)
+      y0<-rexp(1,b0)
+      x<-rexp(N1,a1)
+      y<-rexp(N2,b1)
+      t[i]<-min(x,x0)
+      s[i]<-min(y,y0)
+    }
+    return(cbind(t,s))
+  }
+  rdata<-rBNGM(n,a0,a1,b0,b1,th1,th2,th12)
+  udta<-surv.NGM(rdata[,1],a0,a1,th1+th12)
+  vdta<-surv.NGM(rdata[,2],b0,b1,th2+th12)
+  return(cbind(udta,vdta)) 
+}
+udata<-rBNGM.udata(5000,10,10,35,35,0.0000001,0.0000001,50)
+plot(udata)
+cor(udata)
+
+library(VineCopula)
+udata<-as.copuladata(rBNGM.udata(10000,2,3000,2,4000,5,5,2000))
+pairs.copuladata(udata)
+
+#Plot of density and distribution function of BNGM model.
+library(plot3D)
+BNGM.survival=function(t,s,a0,a1,b0,b1,th1,th2,th12){
+  exp(-a0*t+th1*(exp(-a1*t)-1) -b0*s+th2*(exp(-b1*s)-1)
+      +th12*(exp(-a1*t-b1*s)-1))
+}
+BNGM.survival(0.2,0.7,7,3,2,6,2,7,5)
+x<-y<-seq(0,0.1,0.001)
+z<-outer(x,y,function(x,y) BNGM.survival(x,y,7,3,2,6,2,7,5))
+persp(x,y,z,theta=45,phi=30,col=3)
+
+BNGM.density=function(t,s,a0,a1,b0,b1,th1,th2,th12){
+  BNGM.survival(t,s,a0,a1,b0,b1,th1,th2,th12)*
+    (th12*a1*b1*exp(-a1*t-b1*s)+(b0+th2*b1*exp(-b1*s)+th12*b1*exp(-a1*t-b1*s))
+     *(a0+a1*th1*exp(-a1*t)+th12*a1*exp(-a1*t-b1*s)))
+}
+BNGM.density(0.2,0.7,7,3,2,6,2,7,5)
+s <- seq(0,0.1,0.001)
+t <- seq(0,0.1,0.001)
+w <- outer(s,t,function(s,t) BNGM.density(s,t,7,3,2,6,2,7,0.005))
+persp(s,t,w,theta=45,phi=30,col=8, ltheta = -120, shade = 0.75)
+
+x <- seq(0,1,0.001)
+y <- seq(0,1,0.001)
+z <- outer(x,y,function(x,y) BNGM.density(x,y,7,3,2,6,2,7,10))
+contour(x,y,z)
+
+#Clayton-Oakes and Anderson association measure plots
+Anderson=function(t,s,a1,b1,th12){
+  exp(th12*(1-exp(-a1*t))*(1-exp(-b1*s)))
+}
+s <- seq(0,15,1)
+t <- seq(0,15,1)
+w <- outer(s,t,function(s,t) Anderson(t,s,2,3,100))
+persp(s,t,w,theta=200,phi=30,col=3)
+
+Clayton.Oakes=function(t,s,a0,a1,b0,b1,th1,th2,th12){
+  (th12*a1*b1*exp(-a1*t-b1*s)+(b0+th2*b1*exp(-b1*s)+th12*b1*exp(-a1*t-b1*s))
+   *(a0+a1*th1*exp(-a1*t)+th12*a1*exp(-a1*t-b1*s)))/((a0+a1*exp(-a1*t)
+                                                      *(th1+th12*exp(-b1*s)))*(b0+b1*exp(-b1*s)*(th2+th12*exp(-a1*t))))  
+}
+s <- seq(0,1.5,0.1)
+t <- seq(0,1.5,0.1)
+w <- outer(s,t,function(s,t) Clayton.Oakes(s,t,7,3,2,6,2,7,5)-1)
+persp(s,t,w,theta=45,phi=20,ticktype="detailed",col=10,border = 4)
+
+BNGM.survival=function(t,s,a0,a1,b0,b1,th1,th2,th12){
+  exp(-a0*t+th1*(exp(-a1*t)-1) -b0*s+th2*(exp(-b1*s)-1)
+      +th12*(exp(-a1*t-b1*s)-1))
+}
+BNGM.density=function(t,s,a0,a1,b0,b1,th1,th2,th12){
+  BNGM.survival(t,s,a0,a1,b0,b1,th1,th2,th12)*
+    (th12*a1*b1*exp(-a1*t-b1*s)+(b0+th2*b1*exp(-b1*s)+th12*b1*exp(-a1*t-b1*s))
+     *(a0+a1*th1*exp(-a1*t)+th12*a1*exp(-a1*t-b1*s)))
+}
+BNGM.density(0.2,0.7,7,3,2,6,2,7,5)?
+
+##########################################################
+###1.quantile function from known distribution function###
+##########################################################
+library(nleqslv)
+require("nleqslv")
+quant<-function(p, nu){
+  #maybe format the result somewhat better
+  nleqslv(0, function(x){cum(x, nu)-p} )
+}
+cum(0.05, 3)
+
+################## CTE for MIN ##################
+PNGM<-function(m,a0,a1,b0,b1,th1,th2,th12){
+  exp(-a0*m+th1*(exp(-a1*m)-1)-b0*m+th2*(exp(-b1*m)-1)+th12
+      *(exp(-a1*m-b1*m)-1))
+}
+PNGM(m=2,a0=2,a1=3,b0=2,b1=3,th1=1.5,th2=2.5,th12=3.5)
+
+qNGM<-function(alpha,a0,a1,b0,b1,th1,th2,th12){
+  library(nleqslv)
+  require(nleqslv)
+  aa<-nleqslv(0, function(x){1-PNGM(x,a0,a1,b0,b1,th1,th2,th12)-alpha} )$x
+  return(aa)
+}
+qNGM(alpha=0.002,a0=2,a1=3,b0=2,b1=3,th1=1.5,th2=2.5,th12=3.5)
+
+
+psi<-function(a,b,c,d,e,f,g){
+    integrate(function(x) (x^(a-1))*exp(b*x+(c*x^d)+(e*x^f)),
+            lower = 0, upper = g)$value
+}
+psi(1,1,1,1,1,1,1)
+
+CTEofMIN<-function(alpha,a0,a1,b0,b1,th1,th2,th12){
+  dd<-(exp(-th1-th2-th12)/(a1*PNGM(qNGM(alpha,a0,a1,b0,b1,th1,th2,th12)
+                                   ,a0,a1,b0,b1,th1,th2,th12)))*
+    psi((a0+b0)/a1 , th1,th2,b1/a1,th12,(a1+b1)/a1,exp(-a1*qNGM(alpha,
+                                          a0,a1,b0,b1,th1,th2,th12)))
+  return(dd)
+}
+CTEofMIN(0.1,1,0.2,1,0.3,200,300,10)
