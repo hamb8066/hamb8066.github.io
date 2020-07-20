@@ -4,7 +4,7 @@
 # Research
 
 ## In preparation
-(202x) Multivariate ageing intensity, with M.Amini, H. Jabbari, M. Szymkowiak.  
+(202x) Multivariate ageing intensity, with M.Amini, M. Szymkowiak.  
   
 (202x) Stress-strength and ageing intensity analysis via a new bivariate negative Gompertz-Makeham model, with M.Amini, H. Jabbari, A. Dolati.  
 
