@@ -42,7 +42,7 @@ Curriculum vitae (Resume)
 
 ## Education & Visits
 
-* PhD Statistical Inference,  
+* PhD Statistical Inference  
 <sup> Supervisors: [Prof. Amini](http://m-amini.profcms.um.ac.ir) & [Prof. Jabbari](http://jabbarinh.profcms.um.ac.ir)</sup>  
 <sup> Ferdowsi University of Mashhad </sup>    
 * Visiting researcher   
