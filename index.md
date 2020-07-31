@@ -48,9 +48,9 @@ Curriculum vitae (Resume)
 * Visiting researcher   
 <sup> Supervisor: [Prof. Czado](https://www.groups.ma.tum.de/en/statistics/people/claudia-czado) </sup>  
 <sup>  Technical University of Munich  </sup>    
-* MSc Mathematical statistics,   
+* MSc Mathematical statistics   
 <sup> Supervisor: [Prof. Amini](http://m-amini.profcms.um.ac.ir/) </sup>  
 <sup> Ferdowsi University of Mashhad </sup>    
-* BSc Statistics,   
+* BSc Statistics   
 <sup> Ferdowsi University of Mashhad </sup>
 
