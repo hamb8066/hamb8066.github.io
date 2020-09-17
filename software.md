@@ -35,6 +35,7 @@ These are my projects and software codes.
 - [Figure 2.6](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
 - [Figure 2.7](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
 - [Figure 2.8](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
+- شکل 2.2
 
 
  
