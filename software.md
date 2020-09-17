@@ -18,7 +18,7 @@ These are my projects and software codes.
 * [DAX stock data copula-time series data](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)
 
 
-## برنامه های کاربردیرساله دکتری (فصل دوم)
+## برنامه های کاربردی رساله دکتری (فصل دوم)
 
 ### جدول ها
 - [جدول 2.2](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
