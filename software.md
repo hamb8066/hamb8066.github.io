@@ -34,9 +34,9 @@ These are my projects and software codes.
 - [شکل 2.5](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
 - [شکل 2.6](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
 - [شکل 2.7](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
-- [شکل 2.8](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
+- [<p dir='rtl' align='right'>شکل 2.8</p>](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)  
 
-<p dir='rtl' align='right'>test</p> aaaa
+<p dir='rtl' align='right'>شکل 2.8</p> 
 
  
 
