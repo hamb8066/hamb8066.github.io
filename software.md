@@ -17,7 +17,7 @@ These are my projects and software codes.
 
 * [DAX stock data copula-time series data](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)
 
-* [PhD codes](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)
+* [PhD codes](https://github.com/hamb8066/phdthesis/blob/gh-pages/index.md)
 
 
 
