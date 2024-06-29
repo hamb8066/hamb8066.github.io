@@ -3,9 +3,10 @@
 
 # Events
 
-## 2020 (may be postponed or cancelled due to COVID-19 pandemic)
-* Recent Developments in Dependence Modelling with Applications in Finance and Insurance, 8 september, 2020, The island of Agistri (Athens). [link](https://www.vub.be/events/2020/recent-developments-in-dependence-modelling-with-applications-in-finance-and-insurance)  
+## 2024 
 
-* The fourth seminar on Information theory and its applications, 26-27 Feb. 2020, Isfahan, Iran. [link1](http://conf.ui.ac.ir/informationtheory/en/) & [link2](http://wosdce.um.ac.ir/index.php?module=htmlpages&func=display&pid=212)  
+* DEMO2024 - Recent developments in Dependence Modelling with Applications in Finance, Insurance and Pensions, 16-18 september, 2024,  island of Ischia near Naples, Italy. [link](https://www.vub.be/en/event/demo2024-workshop-dependence-modelling)  
 
-* the sixth seminar on Reliability theory and its applications, 15-16 April 2020, University of Mazandaran, Iran. [link](http://wosdce.um.ac.ir/index.php?module=htmlpages&func=display&pid=206)
+* 17th Iranian Statistics Conference, 20-22 Aug. 2024, Birjand, Iran. [link1]([http://conf.ui.ac.ir/informationtheory/en/](https://conf.birjand.ac.ir/ConfDesc.aspx?id=157))
+
+
