@@ -5,12 +5,14 @@
 
 These are the courses that I have taught or teach as a tutor, instructor and tutorial.
 
-## Summer term 2020
+## This Semester
 
 * [Copula Theory and Applications (Msc)](https://hamb8066.github.io/IntroCopula)  
+* Applied Data Analytics for Data Science (Msc)
 
 ## Previous Courses
 
+* Data Mining
 * Mathematical Statistics  
 * Statistical Methods  
 * Probability Theory  
