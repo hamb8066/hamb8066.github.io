@@ -11,11 +11,10 @@ These are my projects and software codes.
 * Prediction of oil returns for MENA region using copula GARCH models (with R)  
 * Modeling Iranian COVID-19 mortality rate using bivariate Gompertz-Makeham distribution (with R)  
 * Risk analysis of Iranian stocks using copula GARCH models (with R)  
-* D-vine quantile regression with multiple responses (with R)  
+* D-vine quantile regression with multiple responses (with R)
+* Prediction for Wind Turbine data based on Vine-Copula (with R)
 
 ## Software (R & Python)
-
-* [DAX stock data copula-time series data](http://*m-amini.profcms.um.ac.ir/imagesm/165/Graduate_Students/H.A._Mohtashami.rar)
 
 * [PhD codes](https://github.com/hamb8066/phdthesis/blob/gh-pages/index.md)
 
